@@ -1,10 +1,10 @@
 interface PC {
-  enter(password: any): void,
+  enter(password: string): void,
   shutdown(): void,
 
 }
 
-class PasswordPC implements PC {
+class InputPC implements PC {
   enter() {
     console.log("Добро пожаловать")
   }
@@ -14,18 +14,18 @@ class PasswordPC implements PC {
 }
 
 class passwordCheck implements PC {
-  pc: any
-  constructor(pc: any) {
+  pc: InputPC
+  constructor(pc: InputPC) {
     this.pc = pc
   }
-  enter(password: any) {
+  enter(password: string) {
     if (this.examination(password)) {
       this.pc.enter()
     } else {
       console.log('Пароль неверный, доступ запрещен')
     }
   }
-  examination(password: any) {
+  examination(password: string) {
     return password === '2023'
   }
   shutdown() {
@@ -33,7 +33,7 @@ class passwordCheck implements PC {
   }
 }
 //Проверка
-const PC = new passwordCheck(new PasswordPC());
+const PC = new passwordCheck(new InputPC());
 PC.enter('2023');//Добро пожаловать
 
 PC.enter('0000');//Пароль неверный, доступ запрещен

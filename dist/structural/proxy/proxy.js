@@ -1,5 +1,5 @@
 "use strict";
-class PasswordPC {
+class InputPC {
     enter() {
         console.log("Добро пожаловать");
     }
@@ -27,7 +27,7 @@ class passwordCheck {
     }
 }
 //Проверка
-const PC = new passwordCheck(new PasswordPC());
+const PC = new passwordCheck(new InputPC());
 PC.enter('2023'); //Добро пожаловать
 PC.enter('0000'); //Пароль неверный, доступ запрещен
 PC.shutdown(); //Завершение работы

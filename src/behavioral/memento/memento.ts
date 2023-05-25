@@ -1,5 +1,5 @@
 class PhotoshopCaretaker {
-  private mementos: any;
+  private mementos: Array<any>;
   private current: number;
   constructor() {
     this.mementos = [];

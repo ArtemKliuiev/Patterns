@@ -11,17 +11,17 @@ class Autopilot implements IPilot {
   }
 }
 // Абстрактная команда
-class Command {
-  autopilot: any
-  constructor(autopilot: any) {
+class Command<T> {
+  autopilot: T
+  constructor(autopilot: T) {
     this.autopilot = autopilot;
   }
   execute() { }
 }
 
-class OnAutopilot extends Command {
+class OnAutopilot<T> extends Command<T> {
   autopilot: any
-  constructor(autopilot: any) {
+  constructor(autopilot: T) {
     super(autopilot);
   }
   execute() {
@@ -29,9 +29,9 @@ class OnAutopilot extends Command {
   }
 }
 
-class OffAutopilot extends Command {
+class OffAutopilot<T> extends Command<T> {
   autopilot: any
-  constructor(autopilot: any) {
+  constructor(autopilot: T) {
     super(autopilot);
   }
   execute() {
@@ -39,9 +39,9 @@ class OffAutopilot extends Command {
   }
 }
 // Исполнитель команд
-class SwitchAutopilot {
+class SwitchAutopilot<T> {
   private command: any
-  concreteCommand(command: any) {
+  concreteCommand(command: T) {
     this.command = command;
   }
   executeCommand() {

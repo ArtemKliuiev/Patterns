@@ -3,9 +3,9 @@ interface Airport {
 }
 //Посредник
 class SomeAirport implements Airport {
-  private airplane: any
-  private helicopter: any
-  constructor(oneTransport: any, twoTransport: any) {
+  private airplane: AirTransport
+  private helicopter: AirTransport
+  constructor(oneTransport: AirTransport, twoTransport: AirTransport) {
     this.airplane = oneTransport;
     this.airplane.setMediator(this);
     this.helicopter = twoTransport;
@@ -24,7 +24,7 @@ class AirTransport {
   constructor(airport: void) {
     this.airport = airport;
   }
-  setMediator(airport: any) {
+  setMediator(airport: Airport) {
     this.airport = airport;
   }
 }

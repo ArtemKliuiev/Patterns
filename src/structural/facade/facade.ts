@@ -18,8 +18,8 @@ class StarshipConstructor {
 }
 //Фасад упрощающий сборку корабля
 class StarshipFacade {
-  starship: any;
-  constructor(starship: any) {
+  starship: StarshipConstructor;
+  constructor(starship: StarshipConstructor) {
     this.starship = starship
   }
   assembleStarship(): string {

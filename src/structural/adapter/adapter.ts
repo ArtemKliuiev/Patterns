@@ -9,8 +9,8 @@ class Dog {
   }
 }
 class DogAdapter {
-  private dog: any;
-  constructor(dog: any) {
+  private dog: Dog;
+  constructor(dog: Dog) {
     this.dog = dog;
   }
 
@@ -19,7 +19,7 @@ class DogAdapter {
   }
 }
 class Talk {
-  talking(cat: any): string {
+  talking(cat: Cat): string {
     return cat.catInterface();
   }
 }

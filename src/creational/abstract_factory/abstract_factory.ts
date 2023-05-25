@@ -1,7 +1,7 @@
 //Абстрактная фабрика
 interface AbstractFactory {
-  createDishOne(): any;
-  createDishTwo(): any;
+  createDishOne(): Sushi | Pizza;
+  createDishTwo(): Rolls | Spaghetti;
 };
 //Фабрика японской кухни
 class JapanFactory implements AbstractFactory {

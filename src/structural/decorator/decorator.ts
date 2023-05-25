@@ -10,8 +10,8 @@ class Bike {
 //Декоратор добавляющий нитро-ускорение
 
 class NitroBoost extends Bike {
-  bike: any;
-  constructor(bike: any) {
+  bike: Bike;
+  constructor(bike: Bike) {
     super()
     this.bike = bike;
   }
@@ -25,8 +25,8 @@ class NitroBoost extends Bike {
 
 //Декоратор добавляющий авто-пилот
 class AutoPilot extends Bike {
-  bike: any;
-  constructor(bike: any) {
+  bike: Bike;
+  constructor(bike: Bike) {
     super()
     this.bike = bike;
   }

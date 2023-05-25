@@ -1,27 +1,27 @@
-interface Collection {
-  addBook(book: string): any;
-  createIterator(): any;
+interface Collection<T> {
+  addBook(book: T): void;
+  createIterator(): T;
 }
-interface Iter {
+interface iIter<T> {
   nextBook(): any;
   hasNext(): boolean;
 }
-class CollectionBooks implements Collection {
-  private books: any
+class CollectionBooks<T> implements Collection<T> {
+  private books: Array<T>
   constructor() {
     this.books = [];
   }
-  addBook(book: string) {
+  addBook(book: T): void {
     this.books.push(book);
   }
-  createIterator() {
+  createIterator(): any {
     return new Iter(this);
   }
 }
-class Iter implements Iter {
+class Iter<T> implements iIter<T> {
   collectionBooks: any;
   private index: number;
-  constructor(collectionBooks: any) {
+  constructor(collectionBooks: T) {
     this.collectionBooks = collectionBooks;
     this.index = 0;
   }

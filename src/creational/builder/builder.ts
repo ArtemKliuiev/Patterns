@@ -1,8 +1,8 @@
 interface Builder {
-  addElectricWheel(electricWheel: boolean): any;
-  addBasket(basket: boolean): any;
-  addNitroBoost(nitroBoost: boolean): any;
-  addFlightMode(flightMode: boolean): any;
+  addElectricWheel(electricWheel: boolean): BiceBuilder;
+  addBasket(basket: boolean): BiceBuilder;
+  addNitroBoost(nitroBoost: boolean): BiceBuilder;
+  addFlightMode(flightMode: boolean): BiceBuilder;
   build(): Bice;
 }
 

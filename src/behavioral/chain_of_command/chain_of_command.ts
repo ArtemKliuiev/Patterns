@@ -1,7 +1,7 @@
 "use strict";
 interface Workers {
   setNext(worker: Workers): Workers;
-  work(worker: string): string;
+  work(typeWork: string): string;
 }
 
 class AbstractWorker implements Workers {
@@ -10,7 +10,7 @@ class AbstractWorker implements Workers {
     this.nextWorker = worker;
     return worker
   }
-  work(typeWork: any) {
+  work(typeWork: string) {
     if (this.nextWorker) {
       return this.nextWorker.work(typeWork)
     }
@@ -18,7 +18,7 @@ class AbstractWorker implements Workers {
   }
 }
 class Painter extends AbstractWorker {
-  work(typeWork: any) {
+  work(typeWork: string) {
     if (typeWork === 'нарисовать') {
       return `Художник: я могу ${typeWork}`;
     }
@@ -26,7 +26,7 @@ class Painter extends AbstractWorker {
   }
 }
 class Cook extends AbstractWorker {
-  work(typeWork: any) {
+  work(typeWork: string) {
     if (typeWork === 'приготовить еду') {
       return `Повар: я могу ${typeWork}`;
     }
@@ -34,14 +34,14 @@ class Cook extends AbstractWorker {
   }
 }
 class Repairer extends AbstractWorker {
-  work(typeWork: any) {
+  work(typeWork: string) {
     if (typeWork === 'отремонтировать') {
       return `Ремонтник: я могу ${typeWork}`;
     }
     return super.work(typeWork);
   }
 }
-function clientCode2(worker: any) {
+function clientCode2(worker: Workers) {
   const needToDo = ['нарисовать', 'приготовить еду', 'поубирать'];
   for (let i = 0; i < needToDo.length; i++) {
     const needWork = needToDo[i];
